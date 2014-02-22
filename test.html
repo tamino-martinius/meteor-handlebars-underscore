@@ -1,0 +1,117 @@
+<!-- Compare -->
+<template name="handlebars-underscore-test-$ne">
+  {{#if $ne "0" 0}}{{test-ok}}{{else}}{{test-fail}}{{/if}}
+  {{#if $ne  0  1}}{{test-ok}}{{else}}{{test-fail}}{{/if}}
+
+  {{#if $ne 0 0}}{{test-fail}}{{else}}{{test-ok}}{{/if}}
+  {{#if $ne "0" "0"}}{{test-fail}}{{else}}{{test-ok}}{{/if}}
+</template>
+
+<template name="handlebars-underscore-test-$eq">
+  {{#if $eq 0 0}}{{test-ok}}{{else}}{{test-fail}}{{/if}}
+  {{#if $eq "0" "0"}}{{test-ok}}{{else}}{{test-fail}}{{/if}}
+
+  {{#if $eq "0" 0}}{{test-fail}}{{else}}{{test-ok}}{{/if}}
+  {{#if $eq  0  1}}{{test-fail}}{{else}}{{test-ok}}{{/if}}
+</template>
+
+<template name="handlebars-underscore-test-$gt">
+  {{#if $gt  1  0}}{{test-ok}}{{else}}{{test-fail}}{{/if}}
+  {{#if $gt  1 -1}}{{test-ok}}{{else}}{{test-fail}}{{/if}}
+
+  {{#if $gt  0  0}}{{test-fail}}{{else}}{{test-ok}}{{/if}}
+  {{#if $gt  0  1}}{{test-fail}}{{else}}{{test-ok}}{{/if}}
+  {{#if $gt -1  1}}{{test-fail}}{{else}}{{test-ok}}{{/if}}
+</template>
+
+<template name="handlebars-underscore-test-$gte">
+  {{#if $gte  1  0}}{{test-ok}}{{else}}{{test-fail}}{{/if}}
+  {{#if $gte  1 -1}}{{test-ok}}{{else}}{{test-fail}}{{/if}}
+  {{#if $gte  0  0}}{{test-ok}}{{else}}{{test-fail}}{{/if}}
+
+  {{#if $gte  0  1}}{{test-fail}}{{else}}{{test-ok}}{{/if}}
+  {{#if $gte -1  1}}{{test-fail}}{{else}}{{test-ok}}{{/if}}
+</template>
+
+<template name="handlebars-underscore-test-$lt">
+  {{#if $lt  0  1}}{{test-ok}}{{else}}{{test-fail}}{{/if}}
+  {{#if $lt -1  1}}{{test-ok}}{{else}}{{test-fail}}{{/if}}
+
+  {{#if $lt  0  0}}{{test-fail}}{{else}}{{test-ok}}{{/if}}
+  {{#if $lt  1  0}}{{test-fail}}{{else}}{{test-ok}}{{/if}}
+  {{#if $lt  1 -1}}{{test-fail}}{{else}}{{test-ok}}{{/if}}
+</template>
+
+<template name="handlebars-underscore-test-$lte">
+  {{#if $lte  0  1}}{{test-ok}}{{else}}{{test-fail}}{{/if}}
+  {{#if $lte -1  1}}{{test-ok}}{{else}}{{test-fail}}{{/if}}
+  {{#if $lte  0  0}}{{test-ok}}{{else}}{{test-fail}}{{/if}}
+
+  {{#if $lte  1  0}}{{test-fail}}{{else}}{{test-ok}}{{/if}}
+  {{#if $lte  1 -1}}{{test-fail}}{{else}}{{test-ok}}{{/if}}
+</template>
+
+<!-- Collections -->
+<template name="handlebars-underscore-test-$contains">
+  {{#if $contains 1 1}}{{test-ok}}{{else}}{{test-fail}}{{/if}}
+  {{#if $contains 1 1 2 3}}{{test-ok}}{{else}}{{test-fail}}{{/if}}
+  {{#if $contains 2 1 2 3}}{{test-ok}}{{else}}{{test-fail}}{{/if}}
+  {{#if $contains 3 1 2 3}}{{test-ok}}{{else}}{{test-fail}}{{/if}}
+  {{#if $contains 1 arr1 2 3}}{{test-ok}}{{else}}{{test-fail}}{{/if}}
+  {{#if $contains 2 arr1 2 3}}{{test-ok}}{{else}}{{test-fail}}{{/if}}
+  {{#if $contains 2 1 arr2 3}}{{test-ok}}{{else}}{{test-fail}}{{/if}}
+  {{#if $contains 3 arr123}}{{test-ok}}{{else}}{{test-fail}}{{/if}}
+  {{#if $contains 1 arrx}}{{test-ok}}{{else}}{{test-fail}}{{/if}}
+  {{#if $contains 2 arrx}}{{test-ok}}{{else}}{{test-fail}}{{/if}}
+  {{#if $contains 3 arrx}}{{test-ok}}{{else}}{{test-fail}}{{/if}}
+
+
+  {{#if $contains 0}}{{test-fail}}{{else}}{{test-ok}}{{/if}}
+  {{#if $contains 0 "0"}}{{test-fail}}{{else}}{{test-ok}}{{/if}}
+  {{#if $contains 0 arr}}{{test-fail}}{{else}}{{test-ok}}{{/if}}
+  {{#if $contains 0 1 2 3}}{{test-fail}}{{else}}{{test-ok}}{{/if}}
+  {{#if $contains 0 arr1 2 3}}{{test-fail}}{{else}}{{test-ok}}{{/if}}
+  {{#if $contains 0 arr1 2 3}}{{test-fail}}{{else}}{{test-ok}}{{/if}}
+  {{#if $contains 0 1 arr2 3}}{{test-fail}}{{else}}{{test-ok}}{{/if}}
+  {{#if $contains 0 arr123}}{{test-fail}}{{else}}{{test-ok}}{{/if}}
+  {{#if $contains 0 arrx}}{{test-fail}}{{else}}{{test-ok}}{{/if}}
+</template>
+
+<template name="handlebars-underscore-test-$indexOf"><!--TODO--></template>
+<template name="handlebars-underscore-test-$lastIndexOf"><!--TODO--></template>
+
+<template name="handlebars-underscore-test-$min">
+  {{#with $min 1}}{{#if $eq . 1}}{{test-ok}}{{else}}{{test-fail}}{{/if}}{{/with}}
+  {{#with $min 1 2 3}}{{#if $eq . 1}}{{test-ok}}{{else}}{{test-fail}}{{/if}}{{/with}}
+  {{#with $min arr1 2 3}}{{#if $eq . 1}}{{test-ok}}{{else}}{{test-fail}}{{/if}}{{/with}}
+  {{#with $min 1 arr2 3}}{{#if $eq . 1}}{{test-ok}}{{else}}{{test-fail}}{{/if}}{{/with}}
+  {{#with $min arr123}}{{#if $eq . 1}}{{test-ok}}{{else}}{{test-fail}}{{/if}}{{/with}}
+  {{#with $min arrx}}{{#if $eq . 1}}{{test-ok}}{{else}}{{test-fail}}{{/if}}{{/with}}
+</template>
+
+<template name="handlebars-underscore-test-$max">
+  {{#with $max 3}}{{#if $eq . 3}}{{test-ok}}{{else}}{{test-fail}}{{/if}}{{/with}}
+  {{#with $max 1 2 3}}{{#if $eq . 3}}{{test-ok}}{{else}}{{test-fail}}{{/if}}{{/with}}
+  {{#with $max arr1 2 3}}{{#if $eq . 3}}{{test-ok}}{{else}}{{test-fail}}{{/if}}{{/with}}
+  {{#with $max 1 arr2 3}}{{#if $eq . 3}}{{test-ok}}{{else}}{{test-fail}}{{/if}}{{/with}}
+  {{#with $max arr123}}{{#if $eq . 3}}{{test-ok}}{{else}}{{test-fail}}{{/if}}{{/with}}
+  {{#with $max arrx}}{{#if $eq . 3}}{{test-ok}}{{else}}{{test-fail}}{{/if}}{{/with}}
+</template>
+
+<template name="handlebars-underscore-test-$first"><!--TODO--></template>
+<template name="handlebars-underscore-test-$last"><!--TODO--></template>
+<template name="handlebars-underscore-test-$flatten"><!--TODO--></template>
+<template name="handlebars-underscore-test-$compact"><!--TODO--></template>
+<template name="handlebars-underscore-test-$intersection"><!--TODO--></template>
+<template name="handlebars-underscore-test-$difference"><!--TODO--></template>
+
+<!-- Objects -->
+
+<template name="handlebars-underscore-test-$keys"><!--TODO--></template>
+<template name="handlebars-underscore-test-$values"><!--TODO--></template>
+<template name="handlebars-underscore-test-$pairs"><!--TODO--></template>
+<template name="handlebars-underscore-test-$invert"><!--TODO--></template>
+<template name="handlebars-underscore-test-$functions"><!--TODO--></template>
+<template name="handlebars-underscore-test-$pick"><!--TODO--></template>
+<template name="handlebars-underscore-test-$omit"><!--TODO--></template>
+<template name="handlebars-underscore-test-$has"><!--TODO--></template>
