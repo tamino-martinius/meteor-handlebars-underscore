@@ -1,18 +1,18 @@
-Handlebars.registerHelper "arr"   , () -> []
-Handlebars.registerHelper "arr1"  , () -> [1]
-Handlebars.registerHelper "arr123", () -> [1, 2, 3]
-Handlebars.registerHelper "arr2"  , () -> [2]
-Handlebars.registerHelper "arrx"  , () -> [[1],[2],[[3], 3]]
-Handlebars.registerHelper "debug" , (val) ->
+UI.registerHelper "arr"   , () -> []
+UI.registerHelper "arr1"  , () -> [1]
+UI.registerHelper "arr123", () -> [1, 2, 3]
+UI.registerHelper "arr2"  , () -> [2]
+UI.registerHelper "arrx"  , () -> [[1],[2],[[3], 3]]
+UI.registerHelper "debug" , (val) ->
   console.log val
   ""
 
 createTest = (pass) ->
   Tinytest.add "handlebars-underscore - #{pass}", (test) ->
-    Template["handlebars-underscore-test-#{pass}"].helpers
-      "test-ok"  : (val) -> test.equal("ok", "ok")
-      "test-fail": (val) -> test.equal("fail", "ok")
-    Template["handlebars-underscore-test-#{pass}"]()
+    Template["handlebars_underscore_test_#{pass}"].helpers
+      "test_ok"  : (val) -> test.equal("ok", "ok")
+      "test_fail": (val) -> test.equal("fail", "ok")
+    Template["handlebars_underscore_test_#{pass}"]()
 
 #--- Compare
 createTest "$ne"
