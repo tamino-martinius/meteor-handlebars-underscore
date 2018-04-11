@@ -12,7 +12,7 @@ createTest = (pass) ->
     Template["handlebars_underscore_test_#{pass}"].helpers
       "test_ok"  : (val) -> test.equal("ok", "ok")
       "test_fail": (val) -> test.equal("fail", "ok")
-    Template["handlebars_underscore_test_#{pass}"]()
+    UI.render Template["handlebars_underscore_test_#{pass}"]
 
 #--- Compare
 createTest "$ne"
