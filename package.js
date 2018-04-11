@@ -1,26 +1,29 @@
 Package.describe({
-    summary: 'Port of some underscore-js functions for handlebars.'
-});
- 
-Package.on_use(function (api) {
-  api.use([
-    'underscore',
-    'coffeescript',
-    'handlebars'
-  ],'client');
- 
-  api.add_files('client.coffee', 'client');
+  name: 'zaku:handlebars-underscore',
+  summary: 'Port of some underscore-js functions for handlebars.',
+  version: '0.2.0',
+  git: 'https://github.com/tamino-martinius/meteor-handlebars-underscore.git'
 });
 
-Package.on_test(function (api) {
+Package.onUse(function (api) {
+  api.use([
+    'underscore',
+    'coffeescript@1.0.17',
+    'standard-app-packages',
+  ], 'client');
+
+  api.addFiles('client.coffee', 'client');
+});
+
+Package.onTest(function (api) {
   api.use([
     'coffeescript',
-    'handlebars-underscore',
-    'templating',
+    'zaku:handlebars-underscore',
+    'standard-app-packages',
     'test-helpers',
     'tinytest'
   ], 'client');
-  api.add_files([
+  api.addFiles([
     'test.html',
     'test.coffee'
   ], 'client');
