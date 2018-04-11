@@ -7,9 +7,9 @@ Package.describe({
 
 Package.onUse(function (api) {
   api.use([
-    'underscore',
+    'underscore@1.0.10',
     'coffeescript@1.0.17',
-    'standard-app-packages',
+    'standard-app-packages@1.0.1',
   ], 'client');
 
   api.addFiles('client.coffee', 'client');
